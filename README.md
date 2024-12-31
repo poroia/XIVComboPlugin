@@ -3,10 +3,9 @@ This plugin condenses combos and mutually exclusive abilities onto a single butt
 
 ## About
 XIVCombo is a plugin to allow for "one-button" combo chains, as well as implementing various other mutually-exclusive button consolidation and quality of life replacements. Some examples of the functionality it provides:
-* ~~All~~ Most weaponskill combos are put onto a single button (sorry DNC and MNK!).
-* Enochian changes into Fire 4 and Blizzard 4 depending on your stacks, a la PvP Enochian.
+* Most weaponskill combos are put onto a single button.
 * Hypercharge turns into Heat Blast while Overheated.
-* Jump/High Jump turns into Mirage Dive while Dive Ready.
+* Pictomancer's Motifs and Muses are merged.
 * And many, many more!
 
 For some jobs, this frees a massive amount of hotbar space (looking at you, DRG). For most, it removes a lot of mindless tedium associated with having to press various buttons that have little logical reason to be separate.
@@ -25,4 +24,4 @@ For some jobs, this frees a massive amount of hotbar space (looking at you, DRG)
 ![](https://github.com/attickdoor/xivcomboplugin/raw/master/res/eno_swap.gif)
 
 ## Known Issues
-* None, for now!
+* If you find any, please send a feedback using the Dalamud Feedback feature in the plugin installer.
