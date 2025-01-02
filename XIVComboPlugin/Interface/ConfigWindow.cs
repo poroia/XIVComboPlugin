@@ -419,10 +419,10 @@ public class ConfigWindow : Window
 
                         ImGui.BulletText("goat and the whole Dalamud team");
                         ImGui.BulletText("ff-meli for the initial concept");
-                        ImGui.BulletText("attick for XIVCombo");
-                        ImGui.BulletText("daemitus for creating XIVCombo Expanded");
+                        ImGui.BulletText("attick for the original XIVCombo");
+                        ImGui.BulletText("daemitus for the codebase data expansion");
                         ImGui.Spacing();
-                        ImGui.Text("Along with Khayle for taking over the project.");
+                        ImGui.Text("+ Khayle for taking over the project.");
                     }
                 }
                 #endregion
