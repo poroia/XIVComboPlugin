@@ -109,10 +109,9 @@ namespace XIVCombo.Interface
 			}
 
 			var enableTheme = Service.Configuration.EnableTheme;
-			if (ImGui.Checkbox("Enforce a custom theme.", ref enableTheme))
+			if (ImGui.Checkbox("Enforce the custom theme.", ref enableTheme))
 			{
 				Service.Configuration.EnableTheme = enableTheme;
-				StyleModel.GetFromCurrent().Pop();
 				Service.Configuration.Save();
 			}
 
