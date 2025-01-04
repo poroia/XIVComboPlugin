@@ -11,7 +11,6 @@ using Dalamud.Interface.Textures;
 using Dalamud.Interface.Utility.Raii;
 using Dalamud.Interface.Windowing;
 using Dalamud.Utility;
-using FFXIVClientStructs.FFXIV.Client.Graphics.Render;
 using ImGuiNET;
 using Lumina.Excel.Sheets;
 using XIVCombo.Attributes;
@@ -26,25 +25,26 @@ namespace XIVCombo.Interface;
 /// </summary>
 public class ConfigWindow : Window
 {
-	StyleModel currentStyle;
+    bool themePushed = false;
 	StyleModel pluginStyle = StyleModel.Deserialize("DS1H4sIAAAAAAAACqVYy3LbNhT9lQ7XHg/xBrSL7TZexB1P7E7a7GiKlljTokpRzsOTf8/FG6AkT6R6IwPCObjve6HXoipm6Lw8Kx6K2WvxNyxKvfqnmMnz8sdZURczrDfm7ljjjpXnzJyCTzj1CN+eFQt3dunOtm5dPbiNfx2YuyuIueLJHevcqefJKWpOrSa73Oz2bpdmZ9dBSLtbmt3/ipnSGwPcA8qdFRt38Qgb5p+t23hxn1/c51cn2be9yn/fe1tVuW2SKVv3oOZrcd98HQNMMKwowg4ssaAMrPlZLxQvhaTkrPhkRAACjbxqN9VD18wDA2elkiV1DFxDEHUUZkEETTg+tat5/+ViEQWH+5HgXqu4NAyIGnqWMFwu225+GoE1z22/3q4TAn2cipI7gri0BLIkCiOeSHDRD/NmiDY0AOTgIrteCcyocpcDa0k5Cgx3ywpssetChy0Tmf8YqucmlZlxybHwSiMtMZPKIbGWmHGVyOwIrvuXZki8R5gqCcbC8YCviJLE0VAlCOZ4l+VdPbYvMR0xlxBHxHFgWUpKheMgigmMUknu27HLVDEGo9KrYiISSa+KDknw4C7BRIij48jRXPZdV603iU2OZrppVtuLakh1MvaX3qwo5JLViZu/VKe7egA5HjKSt+IhnH8/6BLnHZHlIrguSWdCVQlypN7MSKaRYTIXM28Fq7VPbObLxn6uiWuQSYLSV5mYUZ8zMZMMb+qnm2p4OjbFnChdC8mVGeZE/ESPo1gutuPY+84BWqIMHMPaOkcblyiyg9/J12A76xXL6r1iqoCvNky7u5SBaqIMZbxUigQmVcoSYeyouMBKsjRCr5sqLXpHJ4nFT/U52iyWZqILwQJz5AsQgRorFApVjIJjBE9J7pp1NVRjH9UheT0lWQswtVViuo9hqtBxkeZZJvqokgpKPYlkSFLmPaMEVJZUlI/Npv3evB/a9al1IDLstgcEkug4sGbhRCoqvSjOsPupJioxIgQmnohRKQn3cctJSQgSWXFOq9qxMQLgnThTUknMQoggIcEZQRGEoQnirMnsZD/EBFEoUFDwkSTY+5ZRVHKsW2dK8dfqsa+3aXM5RZnAMrUpxUiS4GeBSiHi+AbRTLiWL1Bd9fVTu1rcDs1L28S5A/saoEuHxVpLAGVE/f68Hr8l3clXc2/DNApuu3780K6aTZwSvcL6H+t0tA+Q+81MvtbaPpsJm8Cu283YL2AuiSmYjXNZ8KukQu6hmEaNpByKie/iYFsqoLQELg7W57mrusYWqP8z4BoaNyGOQ79aHKtZWvsTsg/tYjmeUPH0jA8Lwpjn+5hP8G/MKfH4u26ceBU5BIoI7l4Zd03X1GOTjvlvRCnRgl0N1eJq6Nf31bBoDl0VhVMA+bN6uQabdJldDt5jnQMY+4SBlJiCDysmJsir9jlRzVdFXwW8XljPlv286izu10BgDP1khTm9mBWX1bheb+u6Xf1209fLqoDXtH0F+ieiLhQmIn2U5+O3dXxaj2Jdtm8OeeDpZ0fetFHVsXDlcZyNg6GBBlzMRxfWeyXlxKzTC5PJzb+HfuWZ+xhhZorX3dYVADf1WoN7fQMwOieQWgWzTKWmxOtJKwCXSUlPa0VuUhUyNgDbA89wqedtpMJgaN/hKdL/HgK0xPwFN3p7Tqfyp0MIaV8KEWg8kVq0O602P5/eNVcnG6Y/1Rdx/DpKSfhp6LSgicNrDpzMnD5lAi425aiEs41Jdq+iND8igKUcEqDQHeGbHz8BRb7GJboTAAA=");
-	
     //     Code to be executed before conditionals are applied and the window is drawn.
 	public override void PreDraw()
 	{
-		if (Service.Configuration.EnableTheme)
+		if (Service.Configuration.EnableTheme && themePushed == false)
 		{
-			currentStyle = StyleModel.GetFromCurrent();
 			pluginStyle.Push();
+            themePushed = true;
 		}
 	}
 
 	//     Code to be executed after the window is drawn.
 	public override void PostDraw()
 	{
-		if (Service.Configuration.EnableTheme)
-			StyleModel.GetFromCurrent().Pop();
-		currentStyle.Apply();
+		if (themePushed == true)
+		{
+			pluginStyle.Pop();
+			themePushed = false;
+		}
 
 	}
 
@@ -299,7 +299,6 @@ public class ConfigWindow : Window
 							if (ImGui.Checkbox("Enforce the custom theme.", ref enableTheme))
 							{
 								Service.Configuration.EnableTheme = enableTheme;
-								StyleModel.GetFromCurrent().Pop();
 								Service.Configuration.Save();
 							}
 
