@@ -13,11 +13,18 @@ namespace XIVCombo.Interface
 			return new Dictionary<string, string[]>()
 				{					
 					{
+						"v2.0.0.2",
+						[
+							"Fixed MCH's Hypercharge Blaster not replacing the correct action like it used to."
+						]
+					},					
+					{
 						"v2.0.0.1",
 						[
-							"Added back Flare/Freeze in the Enochian combo line."
+							"Added back BLM's Flare/Freeze in the Enochian combo line."
 						]
-					},{
+					},
+					{
 						"v2.0.0.0",
 						[
 							"Initial re-release!",

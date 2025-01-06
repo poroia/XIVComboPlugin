@@ -97,23 +97,6 @@ internal class MachinistCleanShot : CustomCombo
     {
         if (actionID == MCH.CleanShot || actionID == MCH.HeatedCleanShot)
         {
-            var gauge = GetJobGauge<MCHGauge>();
-
-            if (IsEnabled(CustomComboPreset.MachinistHypercomboFeature))
-            {
-                if (gauge.IsOverheated && level >= MCH.Levels.HeatBlast)
-                {
-                    if (gauge.IsOverheated && level < MCH.Levels.BlazingShot)
-                    {
-                        return MCH.HeatBlast;
-                    }
-                    else
-                    {
-                        return MCH.BlazingShot;
-                    }
-                }
-            }
-
             if (comboTime > 0)
             {
                 if (lastComboMove == MCH.SlugShot && level >= MCH.Levels.CleanShot)
@@ -124,9 +107,26 @@ internal class MachinistCleanShot : CustomCombo
                     // Heated
                     return OriginalHook(MCH.SlugShot);
             }
-
             // Heated
             return OriginalHook(MCH.SplitShot);
+        }
+
+        return actionID;
+    }
+}
+
+internal class MachinistHyperchargeCombo: CustomCombo
+{
+    protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.MachinistHypercomboFeature;
+
+    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    {
+        if (actionID == MCH.SpreadShot || actionID == MCH.Scattergun)
+        {
+            var gauge = GetJobGauge<MCHGauge>();
+
+            if (level >= MCH.Levels.AutoCrossbow && gauge.IsOverheated)
+                return MCH.AutoCrossbow;
         }
 
         return actionID;
@@ -139,12 +139,12 @@ internal class MachinistSpreadShot : CustomCombo
 
     protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
-        if (actionID == MCH.SpreadShot || actionID == MCH.Scattergun)
+        if (actionID == MCH.Hypercharge)
         {
             var gauge = GetJobGauge<MCHGauge>();
 
-            if (level >= MCH.Levels.AutoCrossbow && gauge.IsOverheated)
-                return MCH.AutoCrossbow;
+            if (level >= MCH.Levels.HeatBlast && gauge.IsOverheated)
+                return OriginalHook(MCH.HeatBlast);
         }
 
         return actionID;

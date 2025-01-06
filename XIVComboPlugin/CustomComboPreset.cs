@@ -220,15 +220,14 @@ public enum CustomComboPreset
     [CustomComboInfo("(Heated) Shot Combo", "Replace Clean Shot with its combo chain.", MCH.JobID)]
     MachinistMainCombo = 3101,
 
-    [IconsCombo([MCH.CleanShot, UTL.ArrowLeft, MCH.HeatBlast, UTL.Blank, MCH.Buffs.Overheat, UTL.Checkmark])]
+    [IconsCombo([MCH.Hypercharge, UTL.ArrowLeft, MCH.HeatBlast, UTL.Blank, MCH.Buffs.Overheat, UTL.Checkmark])]
     [SectionCombo("Single Target")]
-    [ParentCombo(MachinistMainCombo)]
-    [CustomComboInfo("Hypercharge Combo", "Replace Clean Shot combo with Heat Blast while overheated.", MCH.JobID)]
+    [CustomComboInfo("Hypercharge Blaster", "Replaces Hypercharge with Heat Blast while overheated.", MCH.JobID)]
     MachinistHypercomboFeature = 3108,
 
     [IconsCombo([MCH.SpreadShot, UTL.ArrowLeft, MCH.AutoCrossbow, UTL.Blank, MCH.Buffs.Overheat, UTL.Checkmark])]
     [SectionCombo("Area of Effect")]
-    [CustomComboInfo("Spread Shot Heat", "Replace Spread Shot with Auto Crossbow when overheated.", MCH.JobID)]
+    [CustomComboInfo("Spread Shot Heat", "Replace Spread Shot with Auto Crossbow while overheated.", MCH.JobID)]
     MachinistSpreadShotFeature = 3102,
 
     #endregion
