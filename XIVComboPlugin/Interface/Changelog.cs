@@ -13,6 +13,11 @@ namespace XIVCombo.Interface
 			return new Dictionary<string, string[]>()
 				{					
 					{
+						"v2.0.0.1",
+						[
+							"Added back Flare/Freeze in the Enochian combo line."
+						]
+					},{
 						"v2.0.0.0",
 						[
 							"Initial re-release!",

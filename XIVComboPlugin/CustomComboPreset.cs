@@ -106,9 +106,9 @@ public enum CustomComboPreset
     // ====================================================================================
     #region BLACK MAGE
 
-    [IconsCombo([BLM.Fire4, UTL.Cycle, BLM.Blizzard4])]
+    [IconsCombo([BLM.Fire4, BLM.Flare, UTL.Cycle, BLM.Blizzard4, BLM.Freeze])]
     [SectionCombo("Single Target")]
-    [CustomComboInfo("Enochian Feature", "Replace Fire 4 and Blizzard 4 with whichever action you can currently use.", BLM.JobID)]
+    [CustomComboInfo("Enochian Feature", "Replace Fire 4/Flare and Blizzard 4/Freeze with whichever action you can currently use.", BLM.JobID)]
     BlackEnochianFeature = 2501,
 
     #endregion
