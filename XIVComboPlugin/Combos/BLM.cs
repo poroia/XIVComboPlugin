@@ -107,6 +107,17 @@ internal class BlackFireBlizzard4 : CustomCombo
             }
         }
 
-        return actionID;
-    }
+		if (actionID == BLM.Freeze || actionID == BLM.Flare)
+		{
+			var gauge = GetJobGauge<BLMGauge>();
+
+				if (level >= BLM.Levels.Freeze && gauge.InUmbralIce)
+					return BLM.Freeze;
+
+				if (level >= BLM.Levels.Flare && gauge.InAstralFire)
+					return BLM.Flare;
+		}
+
+		return actionID;
+	}
 }
