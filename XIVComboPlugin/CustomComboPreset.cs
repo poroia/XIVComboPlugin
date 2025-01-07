@@ -296,14 +296,14 @@ public enum CustomComboPreset
     // ====================================================================================
     #region PICTOMANCER
 
-    [IconsCombo([PCT.BlizzardCyanST, UTL.ArrowLeft, PCT.FireRedST, UTL.Blank, PCT.SubstractivePalette, UTL.Cross])]
+    [IconsCombo([PCT.FireRedST, UTL.ArrowLeft, PCT.BlizzardCyanST, UTL.Blank, PCT.SubstractivePalette, UTL.Cross])]
     [SectionCombo("Substractive")]
-    [CustomComboInfo("Subtractive Single-Target Combo", "Blizzard in Cyan and Fire in Red's combo chains are always correct even when under Substractive Palette's effect.", PCT.JobID)]
+    [CustomComboInfo("Subtractive Single-Target Combo", "Fire in Red's combo chain is always correct even when under Substractive Palette's effect.", PCT.JobID)]
     PictomancerSubtractiveSTCombo = 4201,
 
-    [IconsCombo([PCT.BlizzardCyanAoE, UTL.ArrowLeft, PCT.FireRedAoE, UTL.Blank, PCT.SubstractivePalette, UTL.Cross])]
+    [IconsCombo([PCT.FireRedAoE, UTL.ArrowLeft, PCT.BlizzardCyanAoE, UTL.Blank, PCT.SubstractivePalette, UTL.Cross])]
     [SectionCombo("Substractive")]
-    [CustomComboInfo("Subtractive AoE Combo", "Blizzard in Cyan II and Fire in Red II's combo chains are always correct even when under Substractive Palette's effect.", PCT.JobID)]
+    [CustomComboInfo("Subtractive AoE Combo", "Fire in Red II's combo chain is always correct even when under Substractive Palette's effect.", PCT.JobID)]
     PictomancerSubtractiveAoECombo = 4202,
 
     [IconsCombo([PCT.CreatureMotif, UTL.ArrowLeft, PCT.LivingMuse, UTL.Blank, PCT.PomMuse, PCT.WingedMuse, PCT.ClawedMuse, PCT.FangedMuse, UTL.Checkmark])]

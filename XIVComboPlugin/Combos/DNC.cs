@@ -146,24 +146,20 @@ internal class DancerFlourish : CustomCombo
 
 internal class DancerWindmillBladeshower : CustomCombo
 {
-    protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.DncAny;
+    protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.DancerAoeProcs;
 
     protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == DNC.Windmill || actionID == DNC.Bladeshower ||
             actionID == DNC.RisingWindmill || actionID == DNC.Bloodshower)
         {
+            if (actionID == DNC.Windmill && level >= DNC.Levels.RisingWindmill &&
+                (HasEffect(DNC.Buffs.FlourishingSymmetry) || HasEffect(DNC.Buffs.SilkenSymmetry)))
+                return DNC.RisingWindmill;
 
-            if (IsEnabled(CustomComboPreset.DancerAoeProcs))
-            {
-                if (actionID == DNC.Windmill && level >= DNC.Levels.RisingWindmill &&
-                    (HasEffect(DNC.Buffs.FlourishingSymmetry) || HasEffect(DNC.Buffs.SilkenSymmetry)))
-                    return DNC.RisingWindmill;
-
-                if (actionID == DNC.Bladeshower && level >= DNC.Levels.Bloodshower &&
-                    (HasEffect(DNC.Buffs.FlourishingFlow) || HasEffect(DNC.Buffs.SilkenFlow)))
-                    return DNC.Bloodshower;
-            }
+            if (actionID == DNC.Bladeshower && level >= DNC.Levels.Bloodshower &&
+                (HasEffect(DNC.Buffs.FlourishingFlow) || HasEffect(DNC.Buffs.SilkenFlow)))
+                return DNC.Bloodshower;
         }
 
         return actionID;

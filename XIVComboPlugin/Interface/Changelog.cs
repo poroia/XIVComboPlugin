@@ -13,6 +13,12 @@ namespace XIVCombo.Interface
 			return new Dictionary<string, string[]>()
 				{					
 					{
+						"v2.0.0.3",
+						[
+							"Fixed PCT's Substractive applying to both Fire in Red and Blizzard in Cyan, only applying to Fire in Red now as it used to."
+						]
+					},							
+					{
 						"v2.0.0.2",
 						[
 							"Fixed MCH's Hypercharge Blaster not replacing the correct action like it used to."

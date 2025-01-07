@@ -133,61 +133,12 @@ internal static class PCT
 			{
 				if (!HasEffect(PCT.Buffs.SubstractivePalette))
 				{
-					if (HasEffect(PCT.Buffs.Aetherhues1))
-					{
-						return PCT.AeroGreenST;
-					}
-					else if (HasEffect(PCT.Buffs.Aetherhues2))
-					{
-						return PCT.WaterBlueST;
-					}
-
-					return PCT.FireRedST;
+					return OriginalHook(PCT.FireRedST);
 				}
 
 				if (HasEffect(PCT.Buffs.SubstractivePalette))
 				{
-					if (HasEffect(PCT.Buffs.Aetherhues1))
-					{
-						return PCT.EarthYellowST;
-					}
-					else if (HasEffect(PCT.Buffs.Aetherhues2))
-					{
-						return PCT.ThunderMagentaST;
-					}
-
-					return PCT.BlizzardCyanST;
-				}
-			}
-
-            if (actionID == PCT.BlizzardCyanST)
-			{
-				if (!HasEffect(PCT.Buffs.SubstractivePalette))
-				{
-					if (HasEffect(PCT.Buffs.Aetherhues1))
-					{
-						return PCT.AeroGreenST;
-					}
-					else if (HasEffect(PCT.Buffs.Aetherhues2))
-					{
-						return PCT.WaterBlueST;
-					}
-
-					return PCT.FireRedST;
-				}
-
-				if (HasEffect(PCT.Buffs.SubstractivePalette))
-				{
-					if (HasEffect(PCT.Buffs.Aetherhues1))
-					{
-						return PCT.EarthYellowST;
-					}
-					else if (HasEffect(PCT.Buffs.Aetherhues2))
-					{
-						return PCT.ThunderMagentaST;
-					}
-
-					return PCT.BlizzardCyanST;
+					return OriginalHook(PCT.BlizzardCyanST);
 				}
 			}
 
@@ -206,61 +157,12 @@ internal static class PCT
 			{
 				if (!HasEffect(PCT.Buffs.SubstractivePalette))
 				{
-					if (HasEffect(PCT.Buffs.Aetherhues1))
-					{
-						return PCT.AeroGreenAoE;
-					}
-					else if (HasEffect(PCT.Buffs.Aetherhues2))
-					{
-						return PCT.WaterBlueAoE;
-					}
-
-					return PCT.FireRedAoE;
+					return OriginalHook(PCT.FireRedAoE);
 				}
 
 				if (HasEffect(PCT.Buffs.SubstractivePalette))
 				{
-					if (HasEffect(PCT.Buffs.Aetherhues1))
-					{
-						return PCT.EarthYellowAoE;
-					}
-					else if (HasEffect(PCT.Buffs.Aetherhues2))
-					{
-						return PCT.ThunderMagentaAoE;
-					}
-
-					return PCT.BlizzardCyanAoE;
-				}
-			}
-
-			if (actionID == PCT.BlizzardCyanAoE)
-			{
-				if (!HasEffect(PCT.Buffs.SubstractivePalette))
-				{
-					if (HasEffect(PCT.Buffs.Aetherhues1))
-					{
-						return PCT.AeroGreenAoE;
-					}
-					else if (HasEffect(PCT.Buffs.Aetherhues2))
-					{
-						return PCT.WaterBlueAoE;
-					}
-
-					return PCT.FireRedAoE;
-				}
-
-				if (HasEffect(PCT.Buffs.SubstractivePalette))
-				{
-					if (HasEffect(PCT.Buffs.Aetherhues1))
-					{
-						return PCT.EarthYellowAoE;
-					}
-					else if (HasEffect(PCT.Buffs.Aetherhues2))
-					{
-						return PCT.ThunderMagentaAoE;
-					}
-
-					return PCT.BlizzardCyanAoE;
+					return OriginalHook(PCT.BlizzardCyanAoE);
 				}
 			}
 
