@@ -13,6 +13,14 @@ namespace XIVCombo.Interface
 			return new Dictionary<string, string[]>()
 				{					
 					{
+						"v2.0.0.4",
+						[
+							"Fixed RDM's Verstone/Verfire Feature procs overwriting Scorch and Resolution.",
+							"Fixed RDM's AoE Combo icons displaying Energy Drain instead of Swiftcast",
+							"Fixed an issue with RPR's Communio not turning properly into Perfectio when using the Enshroud Communio Feature."
+						]
+					},				
+					{
 						"v2.0.0.3",
 						[
 							"Fixed PCT's Substractive applying to both Fire in Red and Blizzard in Cyan, only applying to Fire in Red now as it used to."

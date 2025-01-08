@@ -104,22 +104,19 @@ internal static class RPR
 
 internal class ReaperSlice : CustomCombo
 {
-    protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.RprAny;
+    protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.ReaperSliceCombo;
 
     protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == RPR.InfernalSlice)
         {
-            if (IsEnabled(CustomComboPreset.ReaperSliceCombo))
-            {
-                if (lastComboMove == RPR.WaxingSlice && level >= RPR.Levels.InfernalSlice)
-                    return RPR.InfernalSlice;
+            if (lastComboMove == RPR.WaxingSlice && level >= RPR.Levels.InfernalSlice)
+                return RPR.InfernalSlice;
 
-                if (lastComboMove == RPR.Slice && level >= RPR.Levels.WaxingSlice)
-                    return RPR.WaxingSlice;
+            if (lastComboMove == RPR.Slice && level >= RPR.Levels.WaxingSlice)
+                return RPR.WaxingSlice;
 
-                return RPR.Slice;
-            }
+            return RPR.Slice;
         }
 
         return actionID;
@@ -128,21 +125,16 @@ internal class ReaperSlice : CustomCombo
 
 internal class ReaperScythe : CustomCombo
 {
-    protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.RprAny;
+    protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.ReaperScytheCombo;
 
     protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == RPR.NightmareScythe)
         {
-            var gauge = GetJobGauge<RPRGauge>();
+            if (lastComboMove == RPR.SpinningScythe && level >= RPR.Levels.NightmareScythe)
+                return RPR.NightmareScythe;
 
-            if (IsEnabled(CustomComboPreset.ReaperScytheCombo))
-            {
-                if (lastComboMove == RPR.SpinningScythe && level >= RPR.Levels.NightmareScythe)
-                    return RPR.NightmareScythe;
-
-                return RPR.SpinningScythe;
-            }
+            return RPR.SpinningScythe;
         }
 
         return actionID;
@@ -152,7 +144,7 @@ internal class ReaperScythe : CustomCombo
 
 internal class ReaperEnshroud : CustomCombo
 {
-    protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.RprAny;
+    protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.ReaperEnshroudCommunioFeature;
 
     protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
@@ -160,11 +152,8 @@ internal class ReaperEnshroud : CustomCombo
         {
             var gauge = GetJobGauge<RPRGauge>();
 
-            if (IsEnabled(CustomComboPreset.ReaperEnshroudCommunioFeature))
-            {
-                if (level >= RPR.Levels.Communio && gauge.EnshroudedTimeRemaining > 0)
-                    return RPR.Communio;
-            }
+                if (level >= RPR.Levels.Communio && gauge.EnshroudedTimeRemaining > 0 || HasEffect(RPR.Buffs.PerfectioParata))
+                    return OriginalHook(RPR.Communio);
         }
 
         return actionID;
@@ -190,13 +179,13 @@ internal class ReaperArcaneCircle : CustomCombo
 
 internal class ReaperHellsIngressEgress : CustomCombo
 {
-    protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.RprAny;
+    protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.ReaperRegressFeature;
 
     protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == RPR.HellsEgress || actionID == RPR.HellsIngress)
         {
-            if (level >= RPR.Levels.Regress && IsEnabled(CustomComboPreset.ReaperRegressFeature))
+            if (level >= RPR.Levels.Regress)
 			{
 				if (FindEffect(RPR.Buffs.Threshold) != null)
 					return RPR.Regress;

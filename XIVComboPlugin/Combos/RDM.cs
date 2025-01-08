@@ -94,17 +94,14 @@ internal static class RDM
 
 internal class RedMageVeraeroVerthunder2 : CustomCombo
 {
-    protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.RdmAny;
+    protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.RedMageAoEFeature;
 
     protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == RDM.Veraero2 || actionID == RDM.Verthunder2)
         {
-            if (IsEnabled(CustomComboPreset.RedMageAoEFeature))
-            {
-                if (level >= RDM.Levels.Scatter && (HasEffect(RDM.Buffs.Dualcast) || HasEffect(RDM.Buffs.Acceleration) || HasEffect(RDM.Buffs.Swiftcast) || HasEffect(RDM.Buffs.LostChainspell)))
-                    return OriginalHook(RDM.Scatter);
-            }
+            if (level >= RDM.Levels.Scatter && (HasEffect(RDM.Buffs.Dualcast) || HasEffect(RDM.Buffs.Acceleration) || HasEffect(RDM.Buffs.Swiftcast) || HasEffect(RDM.Buffs.LostChainspell)))
+                return OriginalHook(RDM.Scatter);
         }
 
         return actionID;
@@ -113,25 +110,22 @@ internal class RedMageVeraeroVerthunder2 : CustomCombo
 
 internal class RedMageRedoublementMoulinet : CustomCombo
 {
-    protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.RdmAny;
+    protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.RedMageMeleeCombo;
 
     protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == RDM.Redoublement)
         {
-            if (IsEnabled(CustomComboPreset.RedMageMeleeCombo))
-            {
-                if (lastComboMove == RDM.Zwerchhau && level >= RDM.Levels.Redoublement)
-                    // Enchanted
-                    return OriginalHook(RDM.Redoublement);
-
-                if ((lastComboMove == RDM.Riposte || lastComboMove == RDM.EnchantedRiposte) && level >= RDM.Levels.Zwerchhau)
-                    // Enchanted
-                    return OriginalHook(RDM.Zwerchhau);
-
+            if (lastComboMove == RDM.Zwerchhau && level >= RDM.Levels.Redoublement)
                 // Enchanted
-                return OriginalHook(RDM.Riposte);
-            }
+                return OriginalHook(RDM.Redoublement);
+
+            if ((lastComboMove == RDM.Riposte || lastComboMove == RDM.EnchantedRiposte) && level >= RDM.Levels.Zwerchhau)
+                // Enchanted
+                return OriginalHook(RDM.Zwerchhau);
+
+            // Enchanted
+            return OriginalHook(RDM.Riposte);
         }
 
         return actionID;
@@ -140,32 +134,26 @@ internal class RedMageRedoublementMoulinet : CustomCombo
 
 internal class RedMageVerstoneVerfire : CustomCombo
 {
-    protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.RdmAny;
+    protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.RedMageVerprocFeature;
 
     protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == RDM.Verstone)
         {
-            if (IsEnabled(CustomComboPreset.RedMageVerprocFeature))
-            {
-                if (HasEffect(RDM.Buffs.VerstoneReady))
-                    return RDM.Verstone;
+            if (HasEffect(RDM.Buffs.VerstoneReady) && !CanUseAction(RDM.Scorch) && !CanUseAction(RDM.Resolution))
+                return OriginalHook(RDM.Verstone);
 
-                // Jolt
-                return OriginalHook(RDM.Jolt2);
-            }
+            // Jolt
+            return OriginalHook(RDM.Jolt);
         }
 
         if (actionID == RDM.Verfire)
-        {
-            if (IsEnabled(CustomComboPreset.RedMageVerprocFeature))
-            {
-                if (HasEffect(RDM.Buffs.VerfireReady))
-                    return RDM.Verfire;
+		{
+			if (HasEffect(RDM.Buffs.VerfireReady) && !CanUseAction(RDM.Scorch) && !CanUseAction(RDM.Resolution))
+				return OriginalHook(RDM.Verfire);
 
-                // Jolt
-                return OriginalHook(RDM.Jolt2);
-            }
+            // Jolt
+            return OriginalHook(RDM.Jolt);
         }
 
         return actionID;
