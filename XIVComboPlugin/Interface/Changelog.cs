@@ -13,6 +13,12 @@ namespace XIVCombo.Interface
 			return new Dictionary<string, string[]>()
 				{					
 					{
+						"v2.0.0.5",
+						[
+							"Fixed DRK's Stalwart Soul not reverting to Unleash when below level 40.",
+						]
+					},				
+					{
 						"v2.0.0.4",
 						[
 							"Fixed RDM's Verstone/Verfire Feature procs overwriting Scorch and Resolution.",
