@@ -115,9 +115,9 @@ internal class MachinistCleanShot : CustomCombo
     }
 }
 
-internal class MachinistHyperchargeCombo: CustomCombo
+internal class MachinistSpreadShot : CustomCombo
 {
-    protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.MachinistHypercomboFeature;
+    protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.MachinistSpreadShotFeature;
 
     protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
@@ -133,9 +133,9 @@ internal class MachinistHyperchargeCombo: CustomCombo
     }
 }
 
-internal class MachinistSpreadShot : CustomCombo
+internal class MachinistHyperchargeCombo : CustomCombo
 {
-    protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.MachinistSpreadShotFeature;
+    protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.MachinistHypercomboFeature;
 
     protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {

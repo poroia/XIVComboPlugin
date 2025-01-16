@@ -13,6 +13,12 @@ namespace XIVCombo.Interface
 			return new Dictionary<string, string[]>()
 				{					
 					{
+						"v2.0.0.6",
+						[
+							"Fixed MCH's Hypercharge and Spreadshot combos being swapped.",
+						]
+					},			
+					{
 						"v2.0.0.5",
 						[
 							"Fixed DRK's Stalwart Soul not reverting to Unleash when below level 40.",
