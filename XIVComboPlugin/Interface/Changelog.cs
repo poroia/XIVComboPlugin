@@ -13,6 +13,13 @@ namespace XIVCombo.Interface
 			return new Dictionary<string, string[]>()
 				{					
 					{
+						"v2.0.1.0",
+						[
+							"API 12 update.",
+							"Fixed MNK's Coeurl feature not working if you were level 30 (thanks CGRocky for the feedback).",
+						]
+					},						
+					{
 						"v2.0.0.6",
 						[
 							"Fixed MCH's Hypercharge and Spreadshot combos being swapped.",
