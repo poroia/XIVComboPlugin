@@ -13,6 +13,12 @@ namespace XIVCombo.Interface
 			return new Dictionary<string, string[]>()
 				{					
 					{
+						"v2.0.1.1",
+						[
+							"Fixed DRK's Stalwart Soul combo not working if you were level 40 (thanks esotericist and .necrosis666 for the feedback).",
+						]
+					},				
+					{
 						"v2.0.1.0",
 						[
 							"API 12 update.",
