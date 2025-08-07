@@ -11,7 +11,13 @@ namespace XIVCombo.Interface
 		public static Dictionary<string, string[]> GetChangelog()
 		{
 			return new Dictionary<string, string[]>()
-				{					
+				{
+					{
+						"v2.0.2.0",
+						[
+							"API 13 update.",
+						]
+					},
 					{
 						"v2.0.1.1",
 						[
