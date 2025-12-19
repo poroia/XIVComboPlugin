@@ -13,6 +13,12 @@ namespace XIVCombo.Interface
 			return new Dictionary<string, string[]>()
 				{
 					{
+						"v2.0.3.0",
+						[
+							"API 14 update.",
+						]
+					},
+					{
 						"v2.0.2.0",
 						[
 							"API 13 update.",
