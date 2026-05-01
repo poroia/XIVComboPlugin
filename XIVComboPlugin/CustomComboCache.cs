@@ -112,7 +112,7 @@ internal partial class CustomComboCache : IDisposable
     /// <returns>Max number of charges at current and max level.</returns>
     internal unsafe (ushort Current, ushort Max) GetMaxCharges(uint actionID)
     {
-        var player = Service.ClientState.LocalPlayer;
+        var player = Service.ObjectTable.LocalPlayer;
         if (player == null)
             return (0, 0);
 

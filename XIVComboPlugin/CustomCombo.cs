@@ -157,7 +157,7 @@ internal abstract partial class CustomCombo
     /// Gets the player or null.
     /// </summary>
     protected static IPlayerCharacter? LocalPlayer
-        => Service.ClientState.LocalPlayer;
+        => Service.ObjectTable.LocalPlayer;
 
     /// <summary>
     /// Gets the current target or null.
@@ -169,7 +169,7 @@ internal abstract partial class CustomCombo
     /// Gets the current territory type.
     /// </summary>
     protected static ushort CurrentTerritory
-        => Service.ClientState.TerritoryType;
+        => (ushort)Service.ClientState.TerritoryType;
 
     /// <summary>
     /// Calls the original hook.
