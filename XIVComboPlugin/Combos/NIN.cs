@@ -92,7 +92,7 @@ internal class NinjaAeolianEdge : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.NinAny;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == NIN.AeolianEdge)
         {
@@ -103,10 +103,11 @@ internal class NinjaAeolianEdge : CustomCombo
                 if (lastComboMove == NIN.GustSlash && level >= NIN.Levels.AeolianEdge)
                     return NIN.AeolianEdge;
 
+                // Spinning Edge and Gust Slash are shared with the Armor Crush combo — tint both steps.
                 if (lastComboMove == NIN.SpinningEdge && level >= NIN.Levels.GustSlash)
-                    return NIN.GustSlash;
+                    return (NIN.GustSlash, GetTint(CustomComboPreset.NinjaAeolianEdgeCombo));
 
-                return NIN.SpinningEdge;
+                return (NIN.SpinningEdge, GetTint(CustomComboPreset.NinjaAeolianEdgeCombo));
             }
         }
 
@@ -118,7 +119,7 @@ internal class NinjaArmorCrush : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.NinAny;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == NIN.ArmorCrush)
         {
@@ -127,10 +128,11 @@ internal class NinjaArmorCrush : CustomCombo
                 if (lastComboMove == NIN.GustSlash && level >= NIN.Levels.ArmorCrush)
                     return NIN.ArmorCrush;
 
+                // Spinning Edge and Gust Slash are shared with the Aeolian Edge combo — tint both steps.
                 if (lastComboMove == NIN.SpinningEdge && level >= NIN.Levels.GustSlash)
-                    return NIN.GustSlash;
+                    return (NIN.GustSlash, GetTint(CustomComboPreset.NinjaArmorCrushCombo));
 
-                return NIN.SpinningEdge;
+                return (NIN.SpinningEdge, GetTint(CustomComboPreset.NinjaArmorCrushCombo));
             }
         }
 
@@ -142,7 +144,7 @@ internal class NinjaHakkeMujinsatsu : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.NinAny;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == NIN.HakkeMujinsatsu)
         {

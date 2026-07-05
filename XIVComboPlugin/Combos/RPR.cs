@@ -106,7 +106,7 @@ internal class ReaperSlice : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.ReaperSliceCombo;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == RPR.InfernalSlice)
         {
@@ -127,7 +127,7 @@ internal class ReaperScythe : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.ReaperScytheCombo;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == RPR.NightmareScythe)
         {
@@ -146,7 +146,7 @@ internal class ReaperEnshroud : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.ReaperEnshroudCommunioFeature;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == RPR.Enshroud)
         {
@@ -164,7 +164,7 @@ internal class ReaperArcaneCircle : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.ReaperArcaneHarvestFeature;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == RPR.ArcaneCircle)
         {
@@ -181,7 +181,7 @@ internal class ReaperHellsIngressEgress : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.ReaperRegressFeature;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == RPR.HellsEgress || actionID == RPR.HellsIngress)
         {

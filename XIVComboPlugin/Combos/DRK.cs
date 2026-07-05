@@ -83,7 +83,7 @@ internal class DarkSouleater : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.DrkAny;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == DRK.Souleater)
         {
@@ -112,7 +112,7 @@ internal class DarkStalwartSoul : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.DarkStalwartSoulCombo;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == DRK.StalwartSoul)
 		{

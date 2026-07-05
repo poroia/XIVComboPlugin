@@ -99,7 +99,7 @@ internal class BardHeavyShot : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.BardStraightShotUpgradeFeature;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == BRD.HeavyShot || actionID == BRD.BurstShot)
         {
@@ -116,7 +116,7 @@ internal class BardQuickNock : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.BrdAny;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == BRD.QuickNock || actionID == BRD.Ladonsbite)
         {

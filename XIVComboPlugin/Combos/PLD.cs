@@ -96,7 +96,7 @@ internal class PaladinRoyalAuthority : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.PldAny;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == PLD.RageOfHalone || actionID == PLD.RoyalAuthority)
         {
@@ -120,7 +120,7 @@ internal class PaladinProminence : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.PldAny;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == PLD.Prominence)
         {
@@ -141,7 +141,7 @@ internal class PaladinRequiescat : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.PldAny;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == PLD.Requiescat || actionID == PLD.Imperator)
         {

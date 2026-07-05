@@ -1,4 +1,4 @@
-﻿using Dalamud.Game.ClientState.JobGauge.Types;
+using Dalamud.Game.ClientState.JobGauge.Types;
 
 namespace XIVCombo.Combos;
 
@@ -127,7 +127,7 @@ internal static class PCT
     {
         protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.PictomancerSubtractiveSTCombo;
 
-        protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+        protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
 		{
 			if (actionID == PCT.FireRedST)
 			{
@@ -150,7 +150,7 @@ internal static class PCT
     {
         protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.PictomancerSubtractiveAoECombo;
 
-        protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+        protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
         {
 
 			if (actionID == PCT.FireRedAoE)
@@ -175,7 +175,7 @@ internal static class PCT
     {
         protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.PictomancerHolyCometCombo;
 
-        protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+        protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
         {
             if (actionID == PCT.HolyWhite)
             {
@@ -191,7 +191,7 @@ internal static class PCT
     {
         protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.PctAny;
 
-        protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+        protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
         {
             var gauge = GetJobGauge<PCTGauge>();
 
@@ -224,7 +224,7 @@ internal static class PCT
     {
         protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.PctAny;
 
-        protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+        protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
         {
             var gauge = GetJobGauge<PCTGauge>();
 
@@ -253,7 +253,7 @@ internal static class PCT
     {
         protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.PctAny;
 
-        protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+        protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
         {
             var gauge = GetJobGauge<PCTGauge>();
 
@@ -278,7 +278,7 @@ internal static class PCT
     {
         protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.PictomancerLandscapePrismCombo;
 
-        protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+        protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
         {
             if (actionID == PCT.ScenicMuse)
             {

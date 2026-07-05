@@ -102,7 +102,7 @@ internal class SummonerFester : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.SummonerEDFesterFeature;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == SMN.Fester || actionID == SMN.Necrosis)
         {
@@ -120,7 +120,7 @@ internal class SummonerPainflare : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.SummonerESPainflareFeature;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == SMN.Painflare)
         {
@@ -144,7 +144,7 @@ internal class SummonerLuxSolarisFeature : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.SummonerSummonLuxSolarisFeature;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID is SMN.SummonBahamut or SMN.SummonSolarBahamut)
         {

@@ -90,7 +90,7 @@ internal class BlackFireBlizzard4 : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.BlackEnochianFeature;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == BLM.Fire4 || actionID == BLM.Blizzard4)
         {

@@ -86,7 +86,7 @@ internal class WarriorStormsPathCombo : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.WarriorStormsPathCombo;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == WAR.StormsPath)
         {
@@ -95,12 +95,13 @@ internal class WarriorStormsPathCombo : CustomCombo
                 return WAR.StormsPath;
             }
 
+            // Heavy Swing AND Maim are shared with the other Storm's combo — tint both steps.
             if (lastComboMove == WAR.HeavySwing && level >= WAR.Levels.Maim)
             {
-                return WAR.Maim;
+                return (WAR.Maim, this.Tint);
             }
 
-            return WAR.HeavySwing;
+            return (WAR.HeavySwing, this.Tint);
         }
 
         return actionID;
@@ -111,7 +112,7 @@ internal class WarriorStormsEyeCombo : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.WarriorStormsEyeCombo;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
 	{
 
 		if (actionID == WAR.StormsEye)
@@ -121,12 +122,13 @@ internal class WarriorStormsEyeCombo : CustomCombo
 				return WAR.StormsEye;
 			}
 
+			// Heavy Swing AND Maim are shared with the other Storm's combo — tint both steps.
 			if (lastComboMove == WAR.HeavySwing && level >= WAR.Levels.Maim)
                 {
-                    return WAR.Maim;
+                    return (WAR.Maim, this.Tint);
                 }
 
-                return WAR.HeavySwing;
+                return (WAR.HeavySwing, this.Tint);
         }
 
         return actionID;
@@ -137,7 +139,7 @@ internal class WarriorMythrilTempestCombo : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.WarriorMythrilTempestCombo;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == WAR.MythrilTempest)
         {

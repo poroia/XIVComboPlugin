@@ -88,7 +88,7 @@ internal class AstrologianPlay : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.AstrologianPlayDrawFeature;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         var gauge = GetJobGauge<ASTGauge>();
 

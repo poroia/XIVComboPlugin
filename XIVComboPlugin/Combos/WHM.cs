@@ -67,7 +67,7 @@ internal class WhiteMageAfflatusSolace : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.WhiteMageSolaceMiseryFeature;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == WHM.AfflatusSolace)
         {
@@ -88,7 +88,7 @@ internal class WhiteMageAfflatusRapture : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.WhiteMageRaptureMiseryFeature;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == WHM.AfflatusRapture)
         {

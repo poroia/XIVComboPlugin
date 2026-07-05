@@ -96,7 +96,7 @@ internal class RedMageVeraeroVerthunder2 : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.RedMageAoEFeature;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == RDM.Veraero2 || actionID == RDM.Verthunder2)
         {
@@ -112,7 +112,7 @@ internal class RedMageRedoublementMoulinet : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.RedMageMeleeCombo;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == RDM.Redoublement)
         {
@@ -136,15 +136,14 @@ internal class RedMageVerstoneVerfire : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.RedMageVerprocFeature;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == RDM.Verstone)
         {
             if (HasEffect(RDM.Buffs.VerstoneReady) && !CanUseAction(RDM.Scorch) && !CanUseAction(RDM.Resolution))
                 return OriginalHook(RDM.Verstone);
 
-            // Jolt
-            return OriginalHook(RDM.Jolt);
+            return (OriginalHook(RDM.Jolt), this.Tint);
         }
 
         if (actionID == RDM.Verfire)
@@ -152,8 +151,11 @@ internal class RedMageVerstoneVerfire : CustomCombo
 			if (HasEffect(RDM.Buffs.VerfireReady) && !CanUseAction(RDM.Scorch) && !CanUseAction(RDM.Resolution))
 				return OriginalHook(RDM.Verfire);
 
-            // Jolt
-            return OriginalHook(RDM.Jolt);
+            // Jolt — shares the Verstone color unless the separate Verfire color is enabled.
+            var tint = IsEnabled(CustomComboPreset.RedMageVerprocVerfireTint)
+                ? GetTint(CustomComboPreset.RedMageVerprocVerfireTint)
+                : this.Tint;
+            return (OriginalHook(RDM.Jolt), tint);
         }
 
         return actionID;

@@ -93,7 +93,7 @@ internal class MachinistCleanShot : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.MachinistMainCombo;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == MCH.CleanShot || actionID == MCH.HeatedCleanShot)
         {
@@ -119,7 +119,7 @@ internal class MachinistSpreadShot : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.MachinistSpreadShotFeature;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == MCH.SpreadShot || actionID == MCH.Scattergun)
         {
@@ -137,7 +137,7 @@ internal class MachinistHyperchargeCombo : CustomCombo
 {
     protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.MachinistHypercomboFeature;
 
-    protected override uint Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
     {
         if (actionID == MCH.Hypercharge)
         {
