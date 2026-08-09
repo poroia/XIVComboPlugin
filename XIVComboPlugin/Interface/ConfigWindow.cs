@@ -203,8 +203,9 @@ public class ConfigWindow : Window
                                 }
                             }
 
-                            ImGui.EndChild();
                         }
+
+                        ImGui.EndChild();
 
                         ImGui.SameLine();
 
@@ -239,9 +240,9 @@ public class ConfigWindow : Window
 
 								ImGui.EndChild();
 							}
-
-							ImGui.EndChild();
                         }
+
+						ImGui.EndChild();
 
                         ImGui.Unindent();
 

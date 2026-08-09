@@ -13,6 +13,21 @@ namespace XIVCombo.Interface
 			return new Dictionary<string, string[]>()
 				{
 					{
+						"v2.0.15.2",
+						[
+							"Icon coloring is now available for cross hotbars. Sorry, I forgot controller players existed!",
+						]
+					},
+					{
+						"v2.0.15.1",
+						[
+							"New feature: icon coloring. Combos that can show the same action as another combo can now be given their own hotbar tint, \nso you can tell at a glance which button a shared action belongs to.",
+							"Pick a color per combo in the Combos tab. The color's transparency is the strength of the tint, and right-clicking the swatch resets it.",
+							"Three coloring methods are available in the Settings tab (Vibrant, Shade and Glow), and each combo can override the global \none from inside its color picker.",
+							"RDM: Added a sub-option to color the Verfire Jolt separately from the Verstone one.",
+						]
+					},
+					{
 						"v2.0.15.0",
 						[
 							"API 15 update.",
