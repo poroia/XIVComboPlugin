@@ -878,7 +878,7 @@ public class ConfigWindow : Window
             iconID = 62145;
         // Adventurer
         if (jobID == 0)
-            iconID = 62576;
+            iconID = 62146;
 
         return GetIcon((uint)iconID);
     }
