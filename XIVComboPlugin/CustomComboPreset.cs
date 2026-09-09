@@ -86,6 +86,9 @@ public enum CustomComboPreset
     [CustomComboInfo("Any", "This should not be displayed. This always returns true when used with IsEnabled.", WHM.JobID)]
     WhmAny = AdvAny + WHM.JobID,
 
+    [CustomComboInfo("Any", "This should not be displayed. This always returns true when used with IsEnabled.", BST.JobID)]
+    BstAny = AdvAny + BST.JobID,
+
     [CustomComboInfo("Disabled", "This should not be used.", ADV.JobID)]
     Disabled = 99999,
 
@@ -520,6 +523,15 @@ public enum CustomComboPreset
     [IconsCombo([WHM.AfflatusRapture, UTL.ArrowLeft, WHM.AfflatusMisery, UTL.Blank, UTL.Blank, UTL.Enemy])]
     [CustomComboInfo("Rapture into Misery", "Replace Afflatus Rapture with Afflatus Misery when ready and you have an enemy target and 3 Blood Lilies.", WHM.JobID)]
     WhiteMageRaptureMiseryFeature = 2402,
+
+    #endregion
+    // ====================================================================================
+    #region BEASTMASTER
+
+    [SectionCombo("Single Target")]
+    [IconsCombo([BST.Shieldsplitter, UTL.ArrowLeft, BST.AxebladeBite, UTL.ArrowLeft, BST.SmashAxe])]
+    [CustomComboInfo("Shieldsplitter Combo", "Replace Shieldsplitter with its combo chain.", BST.JobID)]
+    BeastmasterShieldsplitterCombo = 4301,
 
     #endregion
     // ====================================================================================
