@@ -1,6 +1,4 @@
-﻿using Dalamud.Game.ClientState.JobGauge.Types;
-
-namespace XIVCombo.Combos;
+﻿namespace XIVCombo.Combos;
 
 internal static class BST
 {
@@ -44,12 +42,12 @@ internal class BeastShieldsplitter : CustomCombo
             {
                 if (comboTime > 0)
                 {
-                    if (lastComboMove == BST.AxebladeBite)
+                    if (lastComboMove == BST.AxebladeBite && level >= BST.Levels.Shieldsplitter)
                     {
                         return BST.Shieldsplitter;
                     }
 
-                    if (lastComboMove == BST.SmashAxe)
+                    if (lastComboMove == BST.SmashAxe && level >= BST.Levels.AxebladeBite)
                         return BST.AxebladeBite;
                 }
 
